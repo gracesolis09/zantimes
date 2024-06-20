@@ -1,0 +1,250 @@
+<?php
+/*
+* Single post template
+*/
+get_header();
+$srcset = wp_get_attachment_image_srcset( get_post_thumbnail_id(get_the_ID()));
+global $post;
+$author_id = $post->post_author;
+$categories = get_the_category();
+?>
+<article class="singlepost">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 singlepost__content">
+                <?php if (has_post_thumbnail() && !in_category('multimedia') && !in_category('چندرسانه‌‌ای') ): ?>
+                    <section class="row singlepost__image">
+                        <img src="<?php get_the_post_thumbnail_url( get_the_ID(), 'large'); ?>" srcset="<?php echo esc_attr( $srcset ); ?>" alt="featured image">
+                    </section>
+                <?php endif; ?>
+                <?php if ( 'url' === get_field( 'option' ) ) : ?>
+                    <?php if ( $iframe = get_field( 'podcast_embed' ) ) : ?>
+                        <section class="row singlepost__image">
+                            <?php echo $iframe; ?>
+                        </section>
+                    <?php endif; ?>
+                <?php elseif ( 'file' === get_field( 'option' ) ) : ?>
+                    <?php if ( $file = get_field( 'file_upload' ) ) : ?>
+                        <section class="row singlepost__image">
+                           <iframe src="<?php echo $file; ?>" frameborder="0" allowfullscreen></iframe>
+                        </section>
+                    <?php endif; ?>
+                <?php endif; ?>
+                <div class="d-lg-flex justify-content-between singlepost__meta mt-4 mb-3">
+                    <div class="post-meta">
+                        <?php if (!empty($categories)) {
+                            $category_name = $categories[0]->name;
+                            // Loop through each category and display its name
+                            if ( $category_name === 'Multimedia' || $category_name === 'چندرسانه‌‌ای' || $category_name === 'پادکست' ) {
+                                $sub_category_name = '';
+                                foreach ( $categories as $category ) {
+                                    // Check if the category is a sub-category (has a parent)
+                                    if ( $category->category_parent > 0 ) {
+                                        $sub_category_name = $category->name;
+                                        $sub_category_id = $category->term_id;
+                                        break; // Stop the loop once a sub-category is found
+                                    }
+                                }
+                                if ( pll_current_language() === 'fa' ) {
+                                    if ( $sub_category_name === 'پادکست' || $category_name === 'پادکست' ) { 
+                                        echo '<a href="'. get_category_link( $sub_category_id ) .'"><img class="multimedia-icon" src="'. get_template_directory_uri() .'/assets/images/svg/podcast.svg" alt="Podcast"><strong>'. $sub_category_name .'</strong></a>'; 
+                                    } else if ( $sub_category_name === 'ویدیو' ) {
+                                        echo '<a href="'. get_category_link( $sub_category_id ) .'"><img class="multimedia-icon" src="'. get_template_directory_uri() .'/assets/images/svg/video.svg" alt="Video"><strong>'. $sub_category_name .'</strong></a>'; 
+                                    }
+                                } else {
+                                    if ( $sub_category_name === 'Podcast' || $category_name === 'پادکست' ) {
+                                        echo '<a href="'. get_category_link( $sub_category_id ) .'"><img class="multimedia-icon" src="'. get_template_directory_uri() .'/assets/images/svg/podcast.svg" alt="Podcast"><strong>'. $sub_category_name .'</strong></a>'; 
+                                    } else if ( $sub_category_name === 'Video' ) {
+                                        echo '<a href="'. get_category_link( $sub_category_id ) .'"><img class="multimedia-icon" src="'. get_template_directory_uri() .'/assets/images/svg/video.svg" alt="Video"><strong>'. $sub_category_name .'</strong></a>'; 
+                                    }
+                                }
+                            }
+                            if ( $category_name !== 'Multimedia' && $category_name !== 'چندرسانه‌‌ای' && $category_name !== 'پادکست' ) {
+                                echo "<a href='". get_category_link( get_the_category($featured_post)[0]->term_id ) ."'><strong>" . $category_name . "</strong></a>"; 
+                            }
+                        } ?>
+                        <?php if ( pll_current_language() === 'fa' ) : ?>
+                            <span> <?php echo convertEnglishNumbersToPersian((string)get_the_date()); ?> </span>
+                        <?php else : ?>
+                            <span> <?php echo get_the_date(); ?> </span>
+                        <?php endif; ?>
+                    </div>
+                    <div class="share-social-medias">
+                        <strong><?php echo __('Share on', 'zantimes'); ?></strong>
+                        <a href="http://twitter.com/intent/tweet?mini=true&amp;url=<?php the_permalink(); ?>&amp;title=<?php the_title(); ?>&amp;source=<?php bloginfo('name'); ?>" onclick="window.open(this.href, 'twitterwindow','left=20,top=20,width=600,height=700,toolbar=0,resizable=1'); return false;" class="share-icons share-icons--twitter"> 
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/svg/twitter-logo.svg" alt="Twitter logo" width="40" height="40" />
+                        </a>
+                        <a href="http://twitter.com/intent/tweet?mini=true&amp;url=<?php echo urlencode(get_the_permalink()); ?>&amp;title=<?php the_title(); ?>&amp;source=<?php bloginfo('name'); ?>" onclick="window.open(this.href, 'twitterwindow','left=20,top=20,width=600,height=700,toolbar=0,resizable=1'); return false;" class="share-icons share-icons--twitter d-none"> 
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/svg/twitter-logo.svg" alt="Twitter logo" width="40" height="40" />
+                        </a>
+                        <a href="http://www.facebook.com/sharer.php?s=100&amp;p[url]=<?php the_permalink(); ?>&amp;p[title]=<?php the_title(); ?>&amp;p[summary]=[SUMMARY_GOES_HERE]&amp;p[images[0]=[IMAGE_GOES_HERE]" onclick="window.open(this.href, 'facebookwindow','left=20,top=20,width=600,height=700,toolbar=0,resizable=1'); return false;" class="share-icons">  
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/svg/facebook-logo.svg" alt="Facebook logo" width="40" height="40" />
+                        </a>
+                        <a href="http://www.linkedin.com/shareArticle?&amp;url=<?php the_permalink(); ?>&amp;title=<?php the_title(); ?>&amp;source=<?php bloginfo('name'); ?>" onclick="window.open(this.href, 'linkedinwindow','left=20,top=20,width=600,height=700,toolbar=0,resizable=1'); return false;" class="share-icons">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/svg/linkedin-logo.svg" alt="LinkedIn logo" width="40" height="40" />
+                        </a>
+                    </div>
+                </div>
+                <h1 class="title"><?php echo get_the_title(); ?></h1>
+                <div class="singlepost__meta my-4">
+                   <?php
+                        $author_name = get_the_author();
+                        // Check the new ACF field for author
+                        $zanTimeAuthorCF = get_field('zan_times_author', get_the_ID());
+                        $translated_author_name = pll__($zanTimeAuthorCF);
+                    ?> 
+                    <div class="post-meta">
+                        <?php if ( $zanTimeAuthorCF ) : ?>
+                            <strong> <?php echo __( 'By:', 'zantimes' ) ; ?> </strong> <?php echo $translated_author_name; ?>
+                        <?php endif; ?>
+                    </div> 
+                </div>
+                <?php the_content() ?>
+                <?php if (!empty($categories) ) : ?>
+                    <?php $category_name = $categories[0]->name; ?>
+                    <?php if ( $category_name !== 'Multimedia' && $category_name !== 'چندرسانه‌‌ای' && $category_name !== 'پادکست' ) : ?>
+                    <div class="d-block d-lg-flex justify-content-between my-4">
+                    <?php else : ?>
+                    <div class="d-block d-lg-flex justify-content-lg-end my-4">
+                    <?php endif; ?>
+                    <?php if ( $category_name !== 'Multimedia' && $category_name !== 'چندرسانه‌‌ای' && $category_name !== 'پادکست' ) : ?>
+                        <div class="share-social-medias">
+                            <strong><?php echo __('Share on', 'zantimes'); ?></strong>
+                            <a href="http://twitter.com/intent/tweet?mini=true&amp;url=<?php the_permalink(); ?>&amp;title=<?php the_title(); ?>&amp;source=<?php bloginfo('name'); ?>" onclick="window.open(this.href, 'twitterwindow','left=20,top=20,width=600,height=700,toolbar=0,resizable=1'); return false;" class="share-icons"> 
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/svg/twitter-logo.svg" alt="Twitter logo" width="40" height="40" />
+                            </a>
+                            <a href="http://www.facebook.com/sharer.php?s=100&amp;p[url]=<?php the_permalink(); ?>&amp;p[title]=<?php the_title(); ?>&amp;p[summary]=[SUMMARY_GOES_HERE]&amp;p[images[0]=[IMAGE_GOES_HERE]" onclick="window.open(this.href, 'facebookwindow','left=20,top=20,width=600,height=700,toolbar=0,resizable=1'); return false;" class="share-icons">  
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/svg/facebook-logo.svg" alt="Facebook logo" width="40" height="40" />
+                            </a>
+                            <a href="http://www.linkedin.com/shareArticle?&amp;url=<?php the_permalink(); ?>&amp;title=<?php the_title(); ?>&amp;source=<?php bloginfo('name'); ?>" onclick="window.open(this.href, 'linkedinwindow','left=20,top=20,width=600,height=700,toolbar=0,resizable=1'); return false;" class="share-icons">
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/svg/linkedin-logo.svg" alt="LinkedIn logo" width="40" height="40" />
+                            </a>
+                        </div>
+                    <?php endif; ?>
+                    <?php $tags = get_the_tags($post->ID);
+                    if (!empty($tags)) { ?>
+                        <div class="post-tags d-flex align-items-center flex-wrap justify-content-lg-end">
+                            <?php
+                                $tags_name = array();
+                                foreach ($tags as $tag) {
+                                    // Construct a link for each tag
+                                    $tags_name[] = '<span class="me-2 me-lg-0 ms-lg-2">#' . esc_html($tag->name) . '</span>';
+                                }
+                                // Join all the links with a separator (e.g., comma) and output
+                                echo implode('', $tags_name);
+                            ?>
+                        </div>
+                    <?php } ?>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+<section class="singlepost__related my-5">
+    <div class="container">
+    <?php 
+        $related_posts = get_posts(
+            array(
+                'post_type' => 'post',
+                'category__in' => wp_get_post_categories(get_the_ID()),
+                'post__not_in' => array(get_the_ID()),
+                'posts_per_page' => 3,
+                'orderby' => 'date',
+            )
+        );
+        
+        if ($related_posts):
+    ?>
+        <h2 class="related-title"><?php echo __('Related Articles', 'zantimes'); ?></h2>
+        <div class="related-posts-slider-container">
+            <?php foreach ( $related_posts as $post ) : setup_postdata( $post ); ?>
+            <div class="related-post">
+                <a href="<?php echo get_the_permalink($post); ?>">
+                    <?php echo wp_get_attachment_image( get_post_thumbnail_id($post), 'medium_large', '', ['class' => "featured-img"] ); ?>
+                </a>
+                <div class="post-details">
+                    <div class="post-meta">
+                        <?php $categories = get_the_category();
+                        if (!empty($categories)) {
+                            // Loop through each category and display its name
+                            $category_name = $categories[0]->name;
+                            if ( $category_name === 'Multimedia' || $category_name === 'چندرسانه‌‌ای' || $category_name === 'پادکست' ) {
+                                $sub_category_name = '';
+                                foreach ( $categories as $category ) {
+                                    // Check if the category is a sub-category (has a parent)
+                                    if ( $category->category_parent > 0 ) {
+                                        $sub_category_name = $category->name;
+                                        $sub_category_id = $category->term_id;
+                                        break; // Stop the loop once a sub-category is found
+                                    }
+                                }
+                                if ( pll_current_language() === 'fa' ) {
+                                    if ( $sub_category_name === 'پادکست' || $category_name === 'پادکست' ) { 
+                                        echo '<a href="'. get_category_link( $sub_category_id ) .'"><img class="multimedia-icon" src="'. get_template_directory_uri() .'/assets/images/svg/podcast.svg" alt="Podcast"><strong>'. $sub_category_name .'</strong></a>'; 
+                                    } else if ( $sub_category_name === 'ویدیو' ) {
+                                        echo '<a href="'. get_category_link( $sub_category_id ) .'"><img class="multimedia-icon" src="'. get_template_directory_uri() .'/assets/images/svg/video.svg" alt="Video"><strong>'. $sub_category_name .'</strong></a>'; 
+                                    }
+                                } else {
+                                    if ( $sub_category_name === 'Podcast' || $category_name === 'پادکست' ) {
+                                        echo '<a href="'. get_category_link( $sub_category_id ) .'"><img class="multimedia-icon" src="'. get_template_directory_uri() .'/assets/images/svg/podcast.svg" alt="Podcast"><strong>'. $sub_category_name .'</strong></a>'; 
+                                    } else if ( $sub_category_name === 'Video' ) {
+                                        echo '<a href="'. get_category_link( $sub_category_id ) .'"><img class="multimedia-icon" src="'. get_template_directory_uri() .'/assets/images/svg/video.svg" alt="Video"><strong>'. $sub_category_name .'</strong></a>'; 
+                                    }
+                                }
+                            }
+                            if ( $category_name !== 'Multimedia' && $category_name !== 'چندرسانه‌‌ای' && $category_name !== 'پادکست' ) {
+                                echo "<a href='". get_category_link( get_the_category($featured_post)[0]->term_id ) ."'><strong>" . $category_name . "</strong></a>"; 
+                            }
+                        } ?>
+                        <?php 
+                             $author_name = get_the_author();
+                             // Check the new ACF field for author
+                             $zanTimeAuthorCF = get_field('zan_times_author', get_the_ID());
+                             $translated_author_name = pll__($zanTimeAuthorCF);
+                        ?>
+                       <?php if ( $zanTimeAuthorCF ) : ?>
+                            <span> <?php echo $translated_author_name; ?></span>
+                        <?php endif; ?>
+                    </div>
+                    <a class="post-link" href="<?php echo get_the_permalink($post); ?>" aria-label="Read <?php echo get_the_title($post); ?>">
+                        <h4 class="post-title"><?php echo get_the_title($post); ?></h4>
+                    </a>
+                    <?php if ( get_the_excerpt($post) ) : ?>
+                        <p class="post-excerpt"><?php echo get_the_excerpt($post); ?><a href="<?php echo get_the_permalink($post); ?>" aria-label="Read <?php echo get_the_title($post); ?>"><?php echo __('See more', 'zantimes'); ?></a></p>
+                    <?php endif; ?>
+                </div>
+            </div>
+            <?php endforeach; wp_reset_postdata(); ?>
+        </div>
+    <?php endif; ?>
+    </div>
+</section>
+
+<section class="singlepost__related my-5">
+    <div class="container">
+        <h2 class="related-title"><?php echo __('Most Read', 'zantimes'); ?></h2>
+        <?php 
+
+            $args = array(
+                'thumbnail_width' => 100,
+                'thumbnail_height' => 75,
+                'limit' => 6,
+                'range' => 'custom',
+                'time_quantity' => 3,
+                'time_unit' => 'month',
+                'post_html' => '<li>{thumb} <a href="{url}">{text_title}</a></li>'
+            );
+            if ( function_exists('wpp_get_mostpopular') ) {
+                wpp_get_mostpopular($args);
+            }
+        ?>
+
+    </div>
+    </section>
+
+   <?php include 'blocks/newsletter/newsletter.php';?>
+<style>
+<?php include 'blocks/newsletter/style.min.css'; ?>
+</style>
+    <?php get_footer(); ?>

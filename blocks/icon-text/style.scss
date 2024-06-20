@@ -1,0 +1,63 @@
+@import '../../assets/scss/abstract/variables';
+@import '../../assets/scss/abstract/mixins';
+
+.zantimes-icontext {
+    display: grid;
+    margin: 100px auto;
+    gap: 5rem 1rem;
+    grid-template-columns: 1fr;
+
+    &__block {
+        display: flex;
+        align-items: start;
+
+        &-content {
+            margin-left: 1rem;
+        }
+
+        &-icon {
+            margin: 0 auto 16px;
+            width: 80px;
+            height: 65px;
+            object-fit: contain;
+        }
+
+        &-title {
+            margin-bottom: 1rem;
+            font-size: 24px;
+        }
+    }
+
+    @include respond-to(lg-up) {
+        &--3cols {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
+
+    @include respond-to(md-up) {
+        &--2cols {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    @include respond-to(md-down) {
+        &--3cols {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    @include respond-to(sm-down) {
+        margin: 40px auto;
+
+        &__block {
+            flex-wrap: wrap;
+            align-items: start;
+            justify-content: center;
+            text-align: center;
+
+            &-img {
+                margin-bottom: 1rem;
+            }
+        }
+    }
+}

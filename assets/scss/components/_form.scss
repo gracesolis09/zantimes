@@ -1,0 +1,215 @@
+.wpcf7 {
+    label {
+        width: 100%;
+
+        span:first-child,
+        br {
+            display: none;
+        }
+    }
+
+    input,
+    textarea {
+        width: 100%;
+        padding: 20px 20px 15px;
+        border: 1px solid $gray3;
+        background-color: $white;
+        color: $black;
+        border-radius: 8px;
+
+        &::placeholder {
+            color: $black;
+        }
+    }
+
+    input[type="submit"] {
+        @extend %btn;
+        margin-top: 0.5rem;
+        background-color: $primary;
+        border-color: $primary;
+
+        @include on-event() {
+            color: $primary;
+            background-color: $white;
+        }
+
+        &.btn-primary {
+            @include respond-to(lg-up) {
+                display: block;
+                margin-left: auto;
+                max-width: 150px;
+            }
+        }
+    }
+
+    &-not-valid-tip {
+        margin-top: 0.5rem;
+    }
+
+    form {
+        &.invalid,
+        &.sent {
+            .wpcf7-response-output {
+                color: $primary;
+                border: 0;
+            }
+        }
+
+        .wpcf7-response-output {
+            padding: 0 !important;
+            margin: 1.5rem 0 0 !important;
+            text-align: center;
+        }
+
+        .wpcf7-spinner {
+            display: none;
+        }
+    }
+}
+
+.form {
+    &-group {
+        &--file {
+            position: relative;
+            margin-top: -7px;
+            margin-bottom: 1rem;
+
+            &__AR {
+                span[data-name=your-file] {
+                    &:before {
+                        content: 'ضمیمۀ سند';
+                        position: absolute;
+                        left: 20px;
+                        color: $gray4;
+                    }
+
+                    &:after {
+                        content: "بارگذاری";
+                        position: absolute;
+                        top: 50%;
+                        right: 10px;
+                        display: inline-block;
+                        padding: 10px 24px 5px;
+                        min-width: 150px;
+                        font-size: 18px;
+                        font-weight: 700;
+                        color: $white;
+                        text-align: center;
+                        border-width: 1px;
+                        border-style: solid;
+                        border-color: $primary;
+                        background-color: $primary;
+                        border-radius: 8px;
+                        cursor: pointer;
+                        transform: translateY(-50%);
+                    }
+
+                    .wpcf7-not-valid-tip {
+                        position: absolute;
+                        bottom: 0;
+                        right: 0;
+                    }
+                }
+            }
+
+
+            &:not(.form-group--file__AR) {
+                span[data-name=your-file] {
+                    &:before {
+                        content: 'Attach document';
+                        position: absolute;
+                        left: 20px;
+                        color: $gray4;
+                    }
+
+                    &:after {
+                        content: "Upload";
+                        position: absolute;
+                        top: 50%;
+                        right: 10px;
+                        display: inline-block;
+                        padding: 10px 24px 5px;
+                        min-width: 150px;
+                        font-size: 18px;
+                        font-weight: 700;
+                        color: $white;
+                        text-align: center;
+                        border-width: 1px;
+                        border-style: solid;
+                        border-color: $primary;
+                        border-radius: 8px;
+                        background-color: $primary;
+                        cursor: pointer;
+                        transform: translateY(-50%);
+                    }
+
+                    .wpcf7-not-valid-tip {
+                        position: absolute;
+                        bottom: 0;
+                    }
+                }
+            }
+
+            span[data-name=your-file] {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                height: 70px;
+                padding: 20px 20px 15px;
+                color: $gray4;
+                border: 1px solid $gray3;
+                background-color: $white;
+                border-radius: 8px;
+
+                @include on-event() {
+                    &:after {
+                        color: $primary;
+                        border-color: $primary;
+                        background-color: $white;
+                    }
+                }
+
+                .form-file {
+                    position: absolute;
+                    left: 0;
+                    opacity: 0;
+                    z-index: 1;
+                }
+            }
+        }
+    }
+}
+
+.file-upload-filename__AR {
+    direction: rtl;
+}
+
+// Giv WP form overrides
+.give {
+    &-submit.give-btn {
+        @extend %btn;
+        margin-top: 0.5rem;
+        background-color: $primary;
+        border-color: $primary;
+
+        @include on-event() {
+            color: $primary;
+            background-color: $white;
+        }
+    }
+
+    &-input,
+    &-stripe-cc-field {
+        height: 60px!important;
+        padding: 20px 20px 15px!important;
+        border: 1px solid #E0E0E0!important;
+        background-color: #FFF!important;
+        color: #000!important;
+        border-radius: 0!important;
+        font-size: 18px;
+
+        &::placeholder {
+            color: $black!important;
+        }
+    }
+}

@@ -1,0 +1,35 @@
+{
+    "name": "zantimes-posts-by-category",
+    "title": "Posts by category",
+    "description": "A block to list a posts under a specific post category",
+    "style": "block-posts-by-category",
+    "script": "block-posts-by-category",
+    "category": "zantimes-blocks",
+    "icon": "grid-view",
+    "apiVersion": 2,
+    "keywords": ["posts, post grid, category"],
+    "acf": {
+        "mode": "edit",
+	    "renderTemplate": "posts-by-category.php"
+    },
+    "styles": [],
+    "supports": {
+        "color": {
+            "background": true,
+            "gradients": true
+        },
+        "spacing": {
+            "padding": true
+        }
+    },
+    "attributes": {
+    },
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "preview_posts_by_category": true
+            }
+        }
+    }
+}

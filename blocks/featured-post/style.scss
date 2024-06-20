@@ -1,0 +1,56 @@
+@import '../../assets/scss/abstract/variables';
+@import '../../assets/scss/abstract/mixins';
+
+.zantimes-featured-post {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    overflow: hidden;
+
+    &__post-details {
+        a:not(.btn-primary) {
+            text-decoration: none;
+            color: $primary;
+        }
+
+        .read-more a {
+            margin-top: 15px;
+        }
+    }
+
+    &__post-image {
+        img {
+            width: 100%;
+            border-radius: 8px;
+        }
+    }
+
+    &:not(.text-color-light) {
+        h2 {
+            color: $primary;
+        }
+    
+        h3 {
+            color: $black;
+        }
+    }
+    &.text-color-light {
+        h2, h3, p, a, .post-meta span {
+            color: $white;
+        }
+    }
+
+    @include respond-to(md-down) {
+        padding-top: 30px;
+        padding-bottom: 30px;
+
+        &.reverse-mobile {
+            .zantimes-featured-post__post-image {
+                order: -1;
+            }
+        }
+
+        &__post-details {
+            padding-top: 30px;
+        }
+    }
+}

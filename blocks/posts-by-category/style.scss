@@ -1,0 +1,127 @@
+@import '../../assets/scss/abstract/variables';
+@import '../../assets/scss/abstract/mixins';
+
+.zantimes-post-by-category {
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    &__title {
+        color: $primary;
+
+        a {
+            font-weight: bold;
+            text-decoration: none;
+            color: $primary;
+
+            img {
+                margin-left: 10px;
+            }
+        }
+    }
+    .featured-img {
+        object-fit: cover;
+        object-position: left center;
+        width: 100%;
+        border-radius: 8px;
+    }
+
+    .bigger {
+        .featured-img {
+            // height: 320px;
+            height: auto;
+        }
+    }
+
+    .smaller {
+        margin-bottom: 1.25em;
+        .featured-img {
+            // height: 200px;
+            height: auto;
+            margin-right: 1.25em;
+        }
+    }
+
+    .post-title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3; 
+        -webkit-box-orient: vertical;
+    }
+
+    .post-link {
+        text-decoration: none;
+        color: $black;
+    }
+
+    .post-excerpt {
+        a {
+            text-decoration: none;
+            // color: $black;
+            font-weight: bold;
+        }
+    }
+
+    @include respond-to(lg-up) {
+
+        .bigger {
+            .featured-img {
+                // height: 500px;
+                height: auto;
+            }
+        }
+        .smaller {
+            .featured-img {
+                width: 270px;
+                // height: 170px;
+                height: auto;
+            }
+
+            .post-title {
+                max-width: 200px;
+            }
+        }
+    }
+
+    @include respond-to(lg) {
+        .smaller .featured-img {
+            width: 150px;
+            // height: 150px;
+            height: auto;
+        }
+    }
+
+    @include respond-to(md-down) {
+        .bigger {
+            margin-bottom: 1rem;
+        }
+
+        .featured-img {
+            margin-bottom: 1rem;
+        }
+
+        .smaller {
+            .featured-img {
+                width: 300px;
+            }
+        }
+    }
+    @include respond-to(sm-down) {
+        &__title {
+            margin-bottom: 1.5rem;
+        }
+        
+        .smaller {
+            .featured-img {
+                width: 100%;
+                padding-right: 0;
+            }
+        }
+
+        .post-excerpt {
+            a {
+                display: block;
+            }
+        }
+    }
+}

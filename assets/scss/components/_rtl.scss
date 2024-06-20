@@ -1,0 +1,319 @@
+body {
+    &.rtl {
+        font-family: 'normal';
+
+        .fa-logo {
+            display: flex;
+            align-items: center;
+            height: 40px;
+            
+            span {
+                font-family: 'Cambay', sans-serif;
+                font-weight: 400;
+                font-size: 60px;
+                line-height: normal;
+                color: $primary;
+            }
+        }
+
+        .header,
+        & > main {
+            direction: rtl;
+        }
+
+        .header .custom-logo {
+            // height: 120px;
+            object-fit: contain;
+        }
+
+        .header__top-menu li:not(.button) {
+            a {
+                padding-right: 0;
+                padding-left: 30px;
+            }
+
+            &:last-child a {
+                padding-left: 0;
+            }
+        }
+
+        .header__search .searchform {
+            direction: rtl;
+        }
+
+        .header-on-mobile {
+            .header__toggler {
+                margin-left: 0;
+                margin-right: 1rem;
+            }
+        }
+
+        .header {
+            .dropdown {
+                &-toggle {
+                    direction: ltr;
+                }
+
+                &-menu {
+                    text-align: right;
+                }
+
+                @include respond-to(md-down) {
+                    &-menu {
+                        text-align: right;
+                    }
+                }
+            }
+        }
+        .footer {
+            direction: rtl;
+
+            .fa-logo {
+                height: auto;
+
+                span {
+                    color: $white;
+                }
+            }
+            
+            &__menu--column {
+                direction: rtl;
+            }
+
+            .social-media__link~a {
+                margin-left: 0;
+                margin-right: 10px;
+            }
+
+            &__logo-image,
+            svg {
+                // margin-right: -40px;
+                margin-bottom: 1.5rem;
+                width: 100%;
+                max-width: 230px;
+                height: 100px;
+                object-fit: contain;
+                // filter: brightness(100);
+            }
+        }
+
+        .zantimes-newsletter__form #mc_embed_signup #mc-embedded-subscribe {
+            left: 0;
+            right: inherit;
+            border-radius: 10px 0 0 10px;
+        }
+
+        .zantimes-newsletter__form #mc_embed_signup #mc-embedded-subscribe-form #mce-success-response {
+            padding-left: 20px;
+            padding-bottom: 10px;
+        }
+
+        .zantimes-newsletter__form #mc_embed_signup #mc-embedded-subscribe-form #mce-responses {
+            float: right;
+        }
+
+        .zantimes-accordion-item__heading:after {
+            left: 20px;
+            right: inherit;
+        }
+
+        .zantimes-accordion-item__heading {
+            padding-left: 3.5rem;
+            padding-right: 0;
+        }
+
+        .zantimes-post-by-category .smaller .featured-img {
+            margin-right: 0;
+        }
+
+        .wpcf7 input[type=url], 
+        .wpcf7 input[type=email], 
+        .wpcf7 input[type=tel],
+        .wpcf7 input,
+        .wpcf7 textarea {
+            direction: rtl;
+        }
+
+        .form-group--file__AR span[data-name=your-file]:before {
+            right: 20px;
+            left: inherit;
+        }
+
+        .form-group--file__AR span[data-name=your-file]:after {
+            left: 10px;
+            right: inherit;
+        }
+
+        .zantimes-pagination {
+            direction: ltr;
+        }
+
+        .js-zantimes-logo-slider {
+            direction: ltr;
+        }
+
+        .singlepost__content .share-icons {
+            &:first-of-type {
+                margin-right: 1rem;
+            }
+
+            &:last-of-type {
+                margin-left: 0;
+            }
+        }
+
+        .post-meta .multimedia-icon {
+            margin-right: 0;
+            margin-left: 5px;
+            margin-top: 0;
+        }
+
+        .js-zantimes-teams-wrapper {
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .zantimes-icontext__block-content {
+            margin-right: 1rem;
+            margin-left: 0;
+        }
+
+        .zantimes-post-by-category__title a img {
+            margin-right: 10px;
+            margin-left: 0;
+        }
+
+        .zantimes-post-by-category .smaller .featured-img {
+            margin-left: 1.25em;
+            margin-right: 0;
+        }
+
+        .category__post-item strong {
+            margin-left: 10px
+        }
+
+        .post-tags span {
+            margin-left: 0 !important;
+            margin-right: 0.5rem !important;
+        }
+
+        .wpp-thumbnail {
+            float: right;
+            margin: 0 0rem 0 1rem;
+        }
+
+        @media screen and (min-width: 1400px) {
+            .zantimes-featured-post--fullwidth .zantimes-featured-post__post-details {
+                padding-left: 3rem !important;
+                padding-right: calc((100vw - 1300px)/ 2) !important;
+            }
+        }
+
+        @media (min-width: 1200px) and (max-width: 1399px) {
+            .zantimes-featured-post--fullwidth .zantimes-featured-post__post-details {
+                padding-left: 3rem !important;
+                padding-right: calc((100vw - 1100px)/ 2) !important;
+            }
+        }
+
+        @include respond-to(lg-up) {
+            .zantimes-featured-post__post-details h3 {
+                padding-right: 0;
+            }
+            
+            .header__main-menu li:first-of-type {
+                padding-right: 0;
+            }
+
+            .header__main-menu li {
+                padding: 25px 0px 25px 40px;
+            }
+
+            .zantimes-post-by-category .smaller .featured-img {
+                margin-left: 1.25em;
+            }
+
+            .zantimes-featured-post__post-details {
+                padding-right: calc(var(--bs-gutter-x)* .5) !important;
+                padding-left: 3rem !important;
+            }
+
+            .zantimes-accordion-item__body {
+                padding-left: 165px;
+                padding-right: 0;
+            }
+
+            .header__search .searchform__input {
+                right: inherit;
+                left: 0;
+            }
+
+            .zantimes-two-column__col--content.right {
+                padding-right: 50px !important;
+                padding-left: 50px;
+            }
+        }
+
+        @include respond-to(md-up) {
+            .header__search .searchform__input {
+                input {
+                    padding-right: 30px;
+                }
+            }
+
+            .zantimes-newsletter__form #mc_embed_signup form {
+                margin-right: 0;
+                margin-left: 20px;
+            }
+
+            .post-row__info {
+                padding-left: 0;
+                padding-right: 30px;
+            }
+        }
+
+        @include respond-to(md-down) {
+            .header__search-mobile {
+                .search-icon {
+                    right: 22px;
+                    left: inherit;
+                }
+    
+                .searchform__input input {
+                    padding: 15px 40px 10px 15px;
+                }
+            }
+        }
+
+        @include respond-to(sm-down) {
+            .fa-logo {
+                .custom-logo {
+                    max-width: 65px;
+                }
+
+                span {
+                    font-size: 55px;
+                }
+            }
+
+            .zantimes-accordion-item__heading {
+                padding-right: 0;
+                padding-left: 80px;
+            }
+
+            .zantimes-featured-post__post-details {
+                padding-right: 15px !important;
+            }
+
+            .zantimes-newsletter__form #mc_embed_signup form {
+                margin-left: 0;
+            }
+
+            .zantimes-newsletter__form #mc_embed_signup #mc-embedded-subscribe {
+                border-radius: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "name": "zantimes-icontext",
+    "title": "Zantimes - Icon + Text Grid",
+    "description": "A grid of icon + text blocks",
+    "style": "block-icon-text",
+    "category": "zantimes-blocks",
+    "icon": "menu-alt3",
+    "apiVersion": 2,
+    "keywords": ["icon", "text"],
+    "acf": {
+        "mode": "edit",
+	    "renderTemplate": "icon-text.php"
+    },
+    "styles": [],
+    "supports": {
+        "anchor": true
+    },
+    "attributes": {
+    },
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "preview_image_icontext": true
+            }
+        }
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "name": "zantimes-featured-post",
+    "title": "Featured Post",
+    "description": "A block to show a featured post",
+    "style": "block-featured-post",
+    "script": "block-featured-post",
+    "category": "zantimes-featured-post",
+    "icon": "grid-view",
+    "apiVersion": 2,
+    "keywords": ["post, featured, image"],
+    "acf": {
+        "mode": "edit",
+	    "renderTemplate": "featured-post.php"
+    },
+    "styles": [],
+    "supports": {
+        "color": {
+            "background": true,
+            "gradients": true
+        }
+    },
+    "attributes": {
+    },
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "preview_featured_post": true
+            }
+        }
+    }
+}

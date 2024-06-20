@@ -1,0 +1,103 @@
+{
+    "version": 2,
+    "settings": {
+        "layout": {
+            "contentSize": "1320px",
+            "wideSize": "1600px"
+        },
+        "color": {
+            "palette": [
+                {
+                    "name": "Primary",
+                    "slug": "primary",
+                    "color": "#1D0056"
+                },
+                {
+                    "name": "Yellow",
+                    "slug": "yellow",
+                    "color": "#FFBE06"
+                },
+                {
+                    "name": "Light Purple",
+                    "slug": "light-purple",
+                    "color": "#C7C1DD"
+                },
+                {
+                    "name": "Light White",
+                    "slug": "light-white",
+                    "color": "#FAFAFA"
+                },
+                {
+                    "name": "White",
+                    "slug": "white",
+                    "color": "#ffffff"
+                },
+                {
+                    "name": "Black",
+                    "slug": "black",
+                    "color": "#000000"
+                }
+            ],
+            "gradients": [
+				{
+					"slug": "purple-to-deep-purple",
+                    "gradient": "linear-gradient(180deg,#1D0056 65%,#16023c 95%)",
+					"name": "Purple to Deep Purple"
+				},
+                {
+					"slug": "very-light-gray-to-gray",
+                    "gradient": "linear-gradient(180deg,#F9F9F9 65%,#E1E1E1 95%)",
+					"name": "Very Light Gray to Gray"
+				}
+			]
+        },
+        "typography": {
+			"fontFamilies": [
+				{
+					"fontFamily": "Cambay, sans-serif",
+					"slug": "cambay",
+					"name": "Cambay"
+				}
+			],
+            "fontSizes": [
+                {
+					"slug": "small",
+					"size": "16px",
+					"name": "Small"
+				},
+                {
+					"slug": "medium",
+					"size": "20px",
+					"name": "Medium"
+				},
+                {
+					"slug": "large",
+					"size": "28px",
+					"name": "Large"
+				},
+                {
+					"slug": "xlarge",
+					"size": "32px",
+					"name": "Extra Large"
+				},
+                {
+					"slug": "xx-large",
+					"size": "40px",
+					"name": "Double Extra Large"
+				}
+			],
+            "lineHeight": true
+		},
+        "spacing": {
+			"padding": true,
+			"margin": true,
+			"units": [ "px", "em", "rem", "vh", "vw", "%" ]
+		},
+        "border": {
+            "color": true,
+            "radius": true,
+            "style": true,
+            "width": true
+        }
+    }
+}

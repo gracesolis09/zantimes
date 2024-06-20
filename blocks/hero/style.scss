@@ -1,0 +1,38 @@
+@import '../../assets/scss/abstract/variables';
+@import '../../assets/scss/abstract/mixins';
+
+.zantimes-hero {
+    background-size: cover !important;
+    background-position: center !important;
+
+    &__wrapper {
+        position: relative;
+        align-items: center;
+        min-height: 500px;
+        color: $white;
+        z-index: 1;
+    }
+
+    &__heading {
+        font-weight: 700;
+    }
+
+    &__tagline {
+        margin-bottom: 1rem;
+        font-weight: 700;
+        color: $light-purple2;
+    }
+
+   .btn-primary {
+        margin-top: 1.5rem;
+    }
+
+    @include respond-to(sm-down) {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+
+        &__wrapper {
+            min-height: 350px;
+        }
+    }
+}

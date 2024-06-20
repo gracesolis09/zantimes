@@ -1,0 +1,32 @@
+{
+    "name": "zantimes-accordion",
+    "title": "Zantimes - Accordion",
+    "description": "Accordion block",
+    "style": "block-accordion",
+    "script": "",
+    "category": "zantimes-blocks",
+    "icon": "cover-image",
+    "apiVersion": 2,
+    "keywords": ["accordion"],
+    "acf": {
+        "mode": "edit",
+	    "renderTemplate": "accordion.php"
+    },
+    "styles": [],
+    "supports": {
+        "color": {
+            "background": true,
+            "gradients": true
+        }
+    },
+    "attributes": {
+    },
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "preview_image_accordion": true
+            }
+        }
+    }
+}

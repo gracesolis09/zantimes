@@ -1,0 +1,202 @@
+@import '../../assets/scss/abstract/variables';
+
+.zantimes-two-column {
+    position: relative;
+
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        left: 10%;
+        width: 100%;
+        height: 100%;
+        opacity: 0.2;
+    }
+
+    &:before {
+        top: -40px;
+        background: url('../../assets/images/svg/wave-top.svg') no-repeat;
+        background-position: top;
+        background-size: contain;
+    }
+
+    &:after {
+        bottom: 0;
+        background: url('../../assets/images/svg/wave-bottom.svg') no-repeat;
+        background-position: bottom;
+        background-size: contain;
+    }
+
+    &__col {
+        position: relative;
+        z-index: 1;
+        
+        &--bg {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 350px;
+            overflow: hidden;
+            z-index: 1;
+
+            &-image {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+            
+            &.contain {
+                .zantimes-two-column__col--bg-image {
+                    object-fit: contain;
+                }
+            }
+        }
+    }
+}
+
+body:not(.wp-admin) .zantimes-two-column {
+    position: relative;
+    left: 50%;
+    right: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    width: 100vw;
+    z-index: 1;
+    overflow: hidden;
+
+    &__col {
+        flex: 0 0 100%;
+        padding-right: 25px;
+        padding-left: 25px;
+
+        &--content {
+            align-self: center;
+            
+            .acf-innerblocks-container {
+                padding-top: 60px;
+                padding-bottom: 60px;
+                margin: auto;
+                max-width: 560px;
+
+                & > *:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: 992px) {
+        flex-wrap: nowrap;
+
+        &__col {
+            flex: 0 0 50%;
+            padding-right: 35px;
+            padding-left: 90px;
+
+            &--content {
+                .acf-innerblocks-container {
+                    padding-top: 69px;
+                    padding-bottom: 69px;
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: 1199px) {
+        &__col {
+            &--bg {
+                min-height: 600px;
+            }
+        }
+
+        &.is-style-wide .acf-innerblocks-container {
+            margin-right: -40px;
+            max-width: 504px;
+        }
+    }
+
+    @media screen and (min-width: 1234px) {
+        &__col {
+            &--content {
+                &.left {
+                    padding-left: calc((100vw - 1235px)/2);
+
+                }
+    
+                &.right {
+                    padding-right: calc((100vw - 1235px)/2);
+                }
+            }
+        }
+
+        &.content-ms-none {
+            .zantimes-two-column__col--content.right .acf-innerblocks-container {
+                margin-left: 10px;
+            }
+        }
+    }
+
+    @media screen and (min-width: 1350px) {
+        &__col {
+            &--content {
+                &.left {
+                    .acf-innerblocks-container {
+                        margin-left: 0;
+                    }
+                }
+    
+                &.right {
+                    .acf-innerblocks-container {
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 991px) {
+        &:not(.reverse-mobile) {
+            .right {
+                .acf-innerblocks-container {
+                    padding-top: 30px;
+                }
+            }
+        }
+
+        &.reverse-mobile {
+            & > .zantimes-two-column__col:first-of-type {
+                order: 2;
+            }
+        }
+
+        &__col {
+            &--bg {
+                min-height: 390px !important;
+
+                &.contain {
+                    padding-top: 30px;
+                    min-height: 0 !important;
+
+                    .zantimes-two-column__col--bg-image {
+                        position: relative;
+                        width: auto;
+                        max-width: 100%;
+                        height: auto;
+                        max-height: 325px;
+                    }
+                }
+            }
+
+            &--content .acf-innerblocks-container {
+                max-width: 100%;
+            }
+        }
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "name": "zantimes-teams",
+    "title": "Zantimes - Teams",
+    "description": "Teams block",
+    "style": "block-teams",
+    "script": "block-teams",
+    "category": "zantimes-blocks",
+    "icon": "cover-image",
+    "apiVersion": 2,
+    "keywords": ["teams"],
+    "acf": {
+        "mode": "edit",
+	    "renderTemplate": "teams.php"
+    },
+    "styles": [],
+    "supports": {
+        "color": {
+            "background": true,
+            "gradients": true
+        }
+    },
+    "attributes": {
+    },
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "preview_image_teams": true
+            }
+        }
+    }
+}

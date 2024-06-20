@@ -1,0 +1,46 @@
+@import '../../assets/scss/abstract/variables';
+@import '../../assets/scss/abstract/mixins';
+
+.zantimes-logos {
+    padding-top: 80px;
+    
+    &__tagline {
+        display: block;
+        font-weight: 700;
+        color: $primary;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 2.5rem;
+        margin-top: 2rem;
+    }
+
+    img {
+        margin: 0 auto;
+        width: auto;
+        height: 60px;
+        object-fit: contain;
+    }
+
+    .slick-slider {
+        margin-top: 3rem;
+    }
+
+    .slick-track {
+        display: flex;
+        align-items: center;
+        gap: 4.5em;
+        margin-right: -25px;
+        margin-left: -25px;
+    }
+
+    .slick-list {
+        overflow: visible;
+    }
+}

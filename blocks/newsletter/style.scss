@@ -1,0 +1,151 @@
+@import '../../assets/scss/abstract/variables';
+@import '../../assets/scss/abstract/mixins';
+@import '../../assets/scss/components/button';
+
+.zantimes-newsletter {
+    position: relative;
+    display: flex;
+    min-height: 58vh;
+    background-size: cover;
+    background-position: 50% 90%;
+    background-repeat: no-repeat;
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        margin-top: auto;
+        height: 100%;
+        padding-bottom: 80px;
+        padding-right: calc(var(--bs-gutter-x) * .5);
+        padding-left: calc(var(--bs-gutter-x) * .5);
+    }
+
+    &__heading {
+        color: $white;
+    }
+
+    &__form {
+        position: relative;
+        max-width: 680px;
+
+        #mc_embed_signup {
+            background: transparent;
+            
+            form {
+                margin-top: 0;
+                margin-left: 0;
+            }
+
+            .mc-field-group {
+                padding-bottom: 0;
+                width: 100%;
+                min-height: auto;
+                position: relative;
+            }
+
+            .mc-field-group input {
+                padding: 18px 15px 12px;
+                outline: 0;
+                border-radius: 10px 0x 0 10px;
+                border: none;
+                width: 99%;
+
+                &::placeholder {
+                    color: $black;
+                }
+            }
+
+            #mc-embedded-subscribe {
+                position: absolute;
+                top: 0;
+                right: 0;
+                display: inline-block;
+                margin: 0;
+                padding: 18px 30px 15px;
+                height: 62.4px;
+                border-radius: 0 10px 10px 0;
+                background-color: $primary;
+                color: $white;
+                font-family: 'Cambay',sans-serif;
+                font-weight: 700;
+                font-size: inherit;
+
+                &-form {
+                    div.mce_inline_error {
+                        margin: 12px 0 0 0;
+                        padding: 12px 15px 8px;
+                        font-size: 15px;
+                        background-color: $white;
+                    }
+
+                    input.mce_inline_error {
+                        border: 0;
+                    }
+
+                    #mce-responses {
+                        display: block;
+                        margin: 0;
+                        padding: 0;
+                        width: auto;
+                    }
+
+                    #mce-error-response {
+                        color: $red;
+                        background-color: $white;
+                    }
+
+                    #mce-error-response,
+                    #mce-success-response {
+                        margin: 12px 0 0;
+                        padding: 12px 15px 8px;
+                        width: auto;
+                        font-size: 15px;
+                        font-weight: 700;
+                        border-radius: 3px;
+                    }
+
+                    #mce-success-response {
+                        color: $white;
+                        background-color: $primary;
+                    }
+                }
+            }
+
+            .indicates-required,
+            label,
+            .refferal_badge {
+                display: none!important;
+            }
+        }
+    }
+
+    @include respond-to(sm-down) {
+        &__wrapper {
+            padding-bottom: 50px;
+        }
+        
+        &__form {
+            #mc_embed_signup {
+                width: 100%;
+
+                form {
+                    margin-right: 0;
+                }
+
+                .foot {
+                    display: block;
+                    width: 100%;
+                }
+
+                #mc-embedded-subscribe {
+                    width: 100%;
+                    display: block;
+                    position: unset;
+                    margin-top: 10px;
+                    border-radius: 0;
+                }
+            }
+        }
+    }
+}

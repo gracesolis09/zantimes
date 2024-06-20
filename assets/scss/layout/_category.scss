@@ -1,0 +1,58 @@
+.category {
+    &__posts {
+        img {
+            object-fit: cover;
+            object-position: left bottom;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .post-link {
+            text-decoration: none;
+            color: $black;
+        }
+
+        .post-excerpt {
+            a {
+                text-decoration: none;
+                color: $black;
+                font-weight: bold;
+            }
+        }
+
+        @include respond-to(lg-up) {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+
+            img {
+                // height: 240px;
+                object-position: center;
+            }
+        }
+    }
+  
+    &__post-item{
+        margin-bottom: 25px;
+        h5{
+            margin-bottom: 0;
+        }
+    }
+    .js-archive-blogs-load-more {
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    .zantimes-featured-post {
+        background: linear-gradient(180deg,$light-white2 65%,$light-white3 95%);
+    }
+
+    @include respond-to(sm-down) {
+        .zantimes-featured-post {
+            &__post-image {
+                order: -1;
+            }
+        }
+    }
+}

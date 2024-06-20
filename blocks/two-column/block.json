@@ -1,0 +1,31 @@
+{
+    "name": "zantimes-two-column",
+    "title": "Zantimes - Two Column",
+    "description": "A full width two-column block.",
+    "style": "block-two-column",
+    "category": "zantimes-blocks",
+    "icon": "align-pull-left",
+    "apiVersion": 2,
+    "keywords": ["two", "column"],
+    "acf": {
+        "mode": "edit",
+	    "renderTemplate": "two-column.php"
+    },
+    "styles": [],
+    "supports": {
+        "color": {
+            "background": true,
+            "gradients": true
+        }
+    },
+    "attributes": {
+    },
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "preview_image_two_column": true
+            }
+        }
+    }
+}

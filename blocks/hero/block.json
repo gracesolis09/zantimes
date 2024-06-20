@@ -1,0 +1,32 @@
+{
+    "name": "zantimes-hero",
+    "title": "Zantimes - Hero",
+    "description": "Hero block",
+    "style": "block-hero",
+    "script": "",
+    "category": "zantimes-blocks",
+    "icon": "cover-image",
+    "apiVersion": 2,
+    "keywords": ["hero"],
+    "acf": {
+        "mode": "edit",
+	    "renderTemplate": "hero.php"
+    },
+    "styles": [],
+    "supports": {
+        "color": {
+            "background": true,
+            "gradients": true
+        }
+    },
+    "attributes": {
+    },
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "preview_image_hero": true
+            }
+        }
+    }
+}

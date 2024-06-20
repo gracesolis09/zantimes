@@ -1,0 +1,36 @@
+.zantimes-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    margin: 70px auto;
+    max-width: 900px;
+    border-top: 2px solid $gray5;
+
+    .page-numbers:not(.prev):not(.next) {
+        display: none;
+    }
+
+    .prev {
+        order: 1;
+
+        img {
+            width: 20px;
+            transform: rotate(90deg);
+        }
+    }
+
+    .next {
+        order: 3;
+
+        img {
+            width: 20px;
+            transform: rotate(-90deg);
+        }
+    }
+
+    &__text {
+        margin: 0 20px;
+        order: 2;
+    }
+}

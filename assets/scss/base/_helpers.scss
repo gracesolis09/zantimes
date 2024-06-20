@@ -1,0 +1,45 @@
+%alignfull {
+    position: relative;
+    left: 50%;
+    right: 50%;
+    z-index: 1;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    width: 100vw;
+}   
+
+.alignfull:not(.wp-block-image) {
+    @extend %alignfull;
+
+    .wp-block-group__inner-container {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+
+.zantimes-loader {
+    display: none;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border: 8px solid $primary;
+    border-top: 8px solid $light-purple2;
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
+}
+
+@include respond-to(md-down) {
+    html,
+    body {
+        overflow-x: hidden;
+    }
+
+    html.navbar-open,
+    body.navbar-open {
+        margin: 0; 
+        height: 100%;
+        overflow-y: hidden;
+    }
+}

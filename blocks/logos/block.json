@@ -1,0 +1,32 @@
+{
+    "name": "zantimes-logos",
+    "title": "Zantimes - Logos",
+    "description": "Logos block",
+    "style": "block-logos",
+    "script": "block-logos",
+    "category": "zantimes-blocks",
+    "icon": "cover-image",
+    "apiVersion": 2,
+    "keywords": ["logos"],
+    "acf": {
+        "mode": "edit",
+	    "renderTemplate": "logos.php"
+    },
+    "styles": [],
+    "supports": {
+        "color": {
+            "background": true,
+            "gradients": true
+        }
+    },
+    "attributes": {
+    },
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "preview_image_logos": true
+            }
+        }
+    }
+}

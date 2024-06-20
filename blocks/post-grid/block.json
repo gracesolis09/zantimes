@@ -1,0 +1,32 @@
+{
+    "name": "zantimes-post-grid",
+    "title": "Post Grid",
+    "description": "A block to list a post or posts",
+    "style": "block-post-grid",
+    "script": "block-post-grid",
+    "category": "zantimes-blocks",
+    "icon": "grid-view",
+    "apiVersion": 2,
+    "keywords": ["posts, post grid"],
+    "acf": {
+        "mode": "edit",
+	    "renderTemplate": "post-grid.php"
+    },
+    "styles": [],
+    "supports": {
+        "color": {
+            "background": true,
+            "gradients": true
+        }
+    },
+    "attributes": {
+    },
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "preview_post_grid": true
+            }
+        }
+    }
+}

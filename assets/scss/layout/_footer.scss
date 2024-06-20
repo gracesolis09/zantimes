@@ -1,0 +1,119 @@
+.footer {
+    position: relative;
+    padding: 100px 0 0;
+    color: $white;
+
+    & > .container {
+        position: relative;
+        z-index: 1;
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(180deg,$primary 65%,$deep-purple 95%);
+    }
+
+    a {
+        color: $white;
+        text-decoration: none;
+    }
+
+    &__logo-image,
+    svg {
+        margin-bottom: 1.5rem;
+        width: 100%;
+        max-width: 320px;
+    }
+
+    &__menu {
+        width: 100%;
+        column-count: 2;
+        column-gap: 2rem;
+        padding: 0;
+        list-style: none;
+        
+        li {
+            margin-bottom: 1rem; 
+
+            &.lang-item {
+                display: none;
+            }
+        }
+    }
+
+    &__heading {
+        display: inline-block;
+        padding-bottom: 5px;
+        margin-bottom: 2rem;
+        border-bottom: 2px solid $yellow;
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    .social-media {
+        display: flex;
+        flex-wrap: wrap;
+
+        &__link {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50px;
+            background-color: $light-purple;
+
+            & ~ a {
+                margin-left: 10px;
+            }
+        }
+    }
+
+    &__bottom {
+        padding-bottom: 15px;
+        margin-top: 1.5rem;
+    }
+
+    @include respond-to(lg-up) {
+        &__menu {
+            display: inline-block;
+
+            &--column {
+                flex: 0 0 auto;
+                max-width: 35%;
+                margin-top: 25px;
+            }
+        }
+
+        &__bottom {
+            margin-top: 70px;
+            p{
+                font-size: 13px;
+            }
+        }
+    }
+
+    .sub-menu {display: none;}
+
+    @include respond-to(lg-down) {
+        padding: 30px 0 0;
+    }
+
+    @include respond-to(sm-down) {
+        
+        &__menu {
+            column-count: 1;
+        }
+    }
+
+    @include respond-to(xs) {
+        &__bottom {
+            font-size: 13px;
+        }
+    }
+}

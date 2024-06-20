@@ -1,0 +1,77 @@
+%btn {
+    display: inline-block;
+    padding: 12px 24px 7px; 
+    font-weight: bold;
+    font-size: 18px;
+    color: $white;
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none;
+    border-width: 2px;
+    border-style: solid;
+    transition: .2s ease-in-out;
+    border-radius: 8px;
+}
+
+[role=button],
+[type=button] {
+    -webkit-appearance: none;
+    outline: 0;
+}
+
+.btn {
+    &-primary {
+        @extend %btn;
+        background-color: $primary;
+        border-color: $primary;
+
+        @include on-event() {
+            color: $primary;
+            background-color: $white;
+        }
+    }
+    
+    &-white-border {
+        @extend %btn;
+        background-color: $primary;
+        border-color: $white;
+
+        @include on-event() {
+            color: $white;
+        }
+    }
+
+    &-outline {
+        @extend %btn;
+        color: $primary;
+        text-transform: uppercase;
+        border-color: $primary;
+        background-color: transparent;
+
+        @include on-event() {
+            color: $white;
+            background-color: $primary;
+        }
+    }
+}
+
+.wp-block-button.is-style-outline>.wp-block-button__link.has-light-white-background-color {
+    padding-bottom: 7px;
+}
+
+.is-style-btn-primary {
+    .wp-block-button__link {
+        @extend %btn;;
+        background-color: $primary;
+        border-color: $primary;
+    
+        @include on-event() {
+            color: $primary;
+            background-color: $white;
+        }
+    }
+
+    // @include respond-to(sm-down) {
+    //     width: 100%;
+    // }
+}

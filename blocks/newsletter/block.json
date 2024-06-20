@@ -1,0 +1,32 @@
+{
+    "name": "zantimes-newsletter",
+    "title": "Zantimes - Newsletter",
+    "description": "Newsletter Section",
+    "style": "block-newsletter",
+    "category": "zantimes-blocks",
+    "icon": "images-alt",
+    "apiVersion": 2,
+    "keywords": ["newsletter"],
+    "acf": {
+        "mode": "preview",
+	    "renderTemplate": "newsletter.php"
+    },
+    "styles": [],
+    "supports": {
+        "color": {
+            "background": true,
+            "gradients": true
+        },
+        "anchor" : true
+    },
+    "attributes": {
+    },
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "preview_image_newsletter": true
+            }
+        }
+    }
+}
